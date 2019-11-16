@@ -22,24 +22,24 @@ public class Serializer {
 	
 		
 	
-	public Document serialize(Object obj) throws IOException, IllegalArgumentException, IllegalAccessException{
+	public Document serialize(final Object obj) throws IOException, IllegalArgumentException, IllegalAccessException{
 		
 
 		doc = new Document();
-		Element serial = new Element("Serialized");
+		final Element serial = new Element("Serialized");
 		doc.setRootElement(serial);
-		Class c = obj.getClass();
-		Element eleClass = new Element("Class");
+		final Class c = obj.getClass();
+		final Element eleClass = new Element("Class");
 		eleClass.setAttribute("Object", c.getName());
 		
 		//Field array
 		//If field is type array then length is needed otherwise not
 		serial.addContent(eleClass);
-		Field[] fields = c.getDeclaredFields();
-		for(Field field : fields ) {
+		final Field[] fields = c.getDeclaredFields();
+		for(final Field field : fields ) {
 			if(!field.getType().isArray()) {
 				field.setAccessible(true);
-				Element firstElement = new Element("Field");
+				final Element firstElement = new Element("Field");
 				firstElement.setAttribute("Name", field.getName()).setAttribute("DeclaringClass", field.getDeclaringClass().getName());
 				firstElement.addContent(new Element("Value").setText(field.get(obj).toString()));
 				eleClass.addContent(firstElement);
@@ -47,14 +47,14 @@ public class Serializer {
 			else if (field.getType().isArray()) {
 				field.setAccessible(true);
 
-				Object array = field.get(obj);
-				int length = Array.getLength(array);
-				Element anotherElement = new Element("Field");
+				final Object array = field.get(obj);
+				final int length = Array.getLength(array);
+				final Element anotherElement = new Element("Field");
 				anotherElement.setAttribute("Name", field.getName()).setAttribute("DeclaringClass", 
 						field.getDeclaringClass().getName()).setAttribute("Length", String.valueOf(length));
 
 				for(int i = 0; i < length; i++) {
-					Object element = Array.get(array, i);
+					final Object element = Array.get(array, i);
 					anotherElement.addContent(new Element("Value").setText(element.toString()));
 				}
 				eleClass.addContent(anotherElement);
@@ -67,14 +67,14 @@ public class Serializer {
 		}
 		
 		
-		XMLOutputter xmlout = new XMLOutputter(Format.getPrettyFormat());
-		Client serv = new Client();
+		final XMLOutputter xmlout = new XMLOutputter(Format.getPrettyFormat());
+		final Client serv = new Client();
 		//Was not able to get Server running
 	//	serv.send(doc, xmlout);
-		Deserializer Deserial = new Deserializer();
+		final Deserializer Deserial = new Deserializer();
 		try {
 			Deserial.deserialize(doc);
-		} catch (ClassNotFoundException e) {
+		} catch (final ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
