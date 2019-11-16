@@ -1,0 +1,23 @@
+commit cd4ee12c07d4febaedc8ff1d9f95bd25cf86b600
+Author: Brandon <sin.brandon@yahoo.ca>
+Date:   Sat Nov 16 01:49:40 2019 -0700
+
+    Refactors
+
+commit b8d00a4b842377d6b2924c179589585a92f46bd9
+Author: Brandon <sin.brandon@yahoo.ca>
+Date:   Sat Nov 16 01:29:52 2019 -0700
+
+    Test Class upload
+
+commit 3f298cfa242a55eef28a587a04e830cce10355d3
+Author: Brandon <sin.brandon@yahoo.ca>
+Date:   Sat Nov 16 01:06:41 2019 -0700
+
+    First Upload
+
+commit 4ed88139c3f2ac67852c4e966be29bc6504a1ae5
+Author: Brandon <sin.brandon@yahoo.ca>
+Date:   Sat Nov 16 01:04:33 2019 -0700
+
+    Initial commit
