@@ -1,6 +1,7 @@
 package Reflection1Serializable;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 //for Object reference to object
 
@@ -10,5 +11,6 @@ public class ReferenceObject implements Serializable{
 	public String color;
 	public String texture;
 	
+
 
 }

@@ -1,6 +1,6 @@
 //https://www.tutorialspoint.com/java_xml/java_jdom_parse_document.htm
 //Visualizer
-package Reflection1Serializable;
+
 import java.beans.XMLDecoder;
 import java.io.*;
 import java.io.File;

@@ -1,4 +1,9 @@
+//Brandon Sin 30012020, CPSC 501 Assignment 501
+//References
+//https://www.javaworld.com/article/2076132/easy-java-xml-integration-with-jdom--part-2.html
+//https://www.tutorialspoint.com/java_xml/java_jdom_parse_document.htm
 package Reflection1Serializable;
+
 
 import java.util.*;
 import java.beans.XMLEncoder;
@@ -51,9 +56,8 @@ public class Driver {
 					System.out.println(e);
 				}
 				
-				SimpleObjs obj = new SimpleObjs(db,in);
-				System.out.println(obj.getInt());
-				System.out.println(obj.getDouble());
+				SetAndGet obj = new SimpleObjs(db,in);
+				
 				
 				ser.serialize(obj);
 				break;
@@ -87,7 +91,7 @@ public class Driver {
 				}
 				
 				objArray.arrayPrim(arraySize);
-				objArray.display();
+				
 				ser.serialize(objArray);
 				break;
 				
@@ -98,7 +102,7 @@ public class Driver {
 				System.out.println("Printing object references\n");
 				for(int i = 0; i<objArrayRefSize.length; i++) {
 					objArrayRefSize[i] = new ObjectArrayReference();
-					System.out.println(objArrayRefSize[i]);
+					
 				}
 				ObjectReferenceList objList = new ObjectReferenceList(objArrayRefSize);
 				ser.serialize(objList);
@@ -117,8 +121,7 @@ public class Driver {
 				System.out.println("Type in String for String Object2");
 				inputString = str.next();
 				objColl.sb.add(new StringBuilder(inputString));
-				System.out.println("Printing ArrayList");
-				System.out.println(objColl.sb);
+				
 				
 				ser.serialize(objColl);
 				break;

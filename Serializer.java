@@ -6,21 +6,15 @@ import java.io.*;
 
 import java.util.*;
 import org.jdom.*;
-import org.jdom.Document;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
-import org.jdom.Element;
 
 import java.lang.reflect.*;
 
 
 public class Serializer {
 	
-	private static final String SERIALIZED_FILE_NAME = "file.xml";
-	Document doc;
-
-	
-		
+	Document doc;	
 	
 	public Document serialize(final Object obj) throws IOException, IllegalArgumentException, IllegalAccessException{
 		
@@ -69,16 +63,8 @@ public class Serializer {
 		
 		final XMLOutputter xmlout = new XMLOutputter(Format.getPrettyFormat());
 		final Client serv = new Client();
-		//Was not able to get Server running
-	//	serv.send(doc, xmlout);
-		final Deserializer Deserial = new Deserializer();
-		try {
-			Deserial.deserialize(doc);
-		} catch (final ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		xmlout.output(doc, new FileOutputStream("files.xml"));
+		String z = xmlout.outputString(doc);
+		serv.send(doc, z);
 		return doc;
 		
 		
